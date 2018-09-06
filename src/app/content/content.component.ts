@@ -13,10 +13,10 @@ export class ContentComponent implements OnInit {
   constructor(router: Router) {
     router.events.subscribe((event: NavigationEnd) => {
       if (event instanceof NavigationEnd) {
-        if (event.url == '/dashboard' || event.url == "/") {
+        if (event.url == '/auctions/dashboard' || event.url == "/auctions/") {
           this.pageTitle = "首页";
           this.pageDesc = "";
-        } else if (event.url.startsWith("/stock")) {
+        } else if (event.url.startsWith("/auctions/stock")) {
           this.pageTitle = "虚拟币管理系统";
           this.pageDesc = "进行虚拟币的增删改查";
         }

@@ -15,13 +15,13 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.menus = [
-      new Menu(1, "首页", "dashboard"),
-      new Menu(2, "虚拟币管理", 'stock')
+      new Menu(1, "首页", "/auctions/dashboard"),
+      new Menu(2, "虚拟币管理", '/auctions/stock')
     ]
   }
 
   nav(menu: Menu) {
-    this.router.navigateByUrl(menu.link)
+    this.router.navigate([menu.link])
     this.currentid = menu.id;
   }
 

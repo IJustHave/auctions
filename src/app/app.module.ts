@@ -12,14 +12,25 @@ import {StarsComponent} from './stars/stars.component';
 import {RouterModule, Routes} from "@angular/router";
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {StockformComponent} from './stock/stockform/stockform.component';
+import {LoginComponent} from './login/login.component';
+import {MainComponent} from './main/main.component';
 
 const routeConfig: Routes = [
   //重定向路由
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
+  {
+    path: 'auctions', component: MainComponent, children: [
+    {path: '', component: DashboardComponent},
+    {path: 'dashboard', component: DashboardComponent},
+    {path: 'stock', component: StockManagerComponent},
+    {path: 'stock/:id', component: StockformComponent}
+  ]
+  },
+  // {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  // {path: 'dashboard', component: DashboardComponent},
+  // {path: 'stock', component: StockManagerComponent},
 
-  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
-  {path: 'dashboard' , component: DashboardComponent},
-  {path: 'stock',component: StockManagerComponent},
-  {path: 'stock/:id', component: StockformComponent}
 ]
 
 @NgModule({
@@ -34,6 +45,8 @@ const routeConfig: Routes = [
     StarsComponent,
     DashboardComponent,
     StockformComponent,
+    LoginComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,

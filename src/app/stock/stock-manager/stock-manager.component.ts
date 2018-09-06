@@ -10,7 +10,7 @@ export class StockManagerComponent implements OnInit {
 
   public stocks: Array<Stock>;
 
-  constructor(public router:Router) {
+  constructor(public router: Router) {
   }
 
   ngOnInit() {
@@ -26,12 +26,12 @@ export class StockManagerComponent implements OnInit {
     ]
   }
 
-  create(){
-    this.router.navigateByUrl('/stock/0')
+  create() {
+    this.router.navigateByUrl('/auctions/stock/0')
   }
 
-  update(stock:Stock){
-    this.router.navigateByUrl('/stock/'+stock.id)
+  update(stock: Stock) {
+    this.router.navigateByUrl('/auctions/stock/' + stock.id)
   }
 
 }
